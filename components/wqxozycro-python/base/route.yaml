@@ -1,0 +1,18 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata: 
+  labels: 
+    app.kubernetes.io/instance: wqxozycro-python
+    app.kubernetes.io/managed-by: kustomize
+    app.kubernetes.io/name: wqxozycro-python 
+  name: wqxozycro-python
+spec:
+  port:
+    targetPort: 8081 
+  tls:
+    insecureEdgeTerminationPolicy: Redirect
+    termination: edge
+  to:
+    kind: Service
+    name: wqxozycro-python
+    weight: 100 
